@@ -914,7 +914,8 @@ footer {
     display: none;
   }
   .section__2__form__title {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    padding: 0 1rem;
     text-align: center;
   }
   .section__1 .gift1 {
