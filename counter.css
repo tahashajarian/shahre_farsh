@@ -774,7 +774,11 @@ footer {
 .footer__container .nav__links--tel {
   border-left: 1px solid;
   padding-left: 1.5rem;
+  margin-left: 1rem;
 }
+
+
+
 .copyRight {
   font-size: 0.8125rem;
   padding: 1rem;
