@@ -1004,9 +1004,12 @@ footer {
     /* margin: ; */
     /* display: none; */
   }
+  .section__1__desc__greating {
+    margin-bottom: 1rem;
+  }
 
   .section__1__desc button {
-    margin: 0.8rem;
+    margin: 0.6rem;
     height: 3.8rem;
   }
 
