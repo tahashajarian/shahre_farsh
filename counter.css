@@ -498,6 +498,18 @@ main {
   font-size: 0;
 }
 
+
+.flipAnimate::before {
+  /* content: "";
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  display: block;
+  z-index: 9;
+  bottom: 0;
+  background: yellow; */
+}
+
 .flipAnimate::after {
   content: "";
   height: 50%;
@@ -508,7 +520,7 @@ main {
   z-index: 10;
   transform: rotateX(0deg);
   transform-origin: bottom center;
-  animation: flip 1s cubic-bezier(.61,.42,.27,1.55);
+  animation: flip 1s cubic-bezier(0.77, 0, 0.18, 1);
   /* background: url(./assets/images/numbers/0.svg);
   background-size: cover;
   background-position: top;
@@ -936,7 +948,7 @@ footer {
   from {
     transform: rotateX(0deg);
     /* opacity: 1; */
-    background: black;
+    background: rgba(0, 0, 0, 0.8);
   }
   to {
     transform: rotateX(180deg);
