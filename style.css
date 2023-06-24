@@ -151,7 +151,7 @@ main {
   background: radial-gradient(25% 25% at 32% 40%, #ff9498 0%, #cd2028 100%),
     #cd2028;
   /* border: 1px solid; */
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
 }
 
@@ -245,6 +245,7 @@ main {
   opacity: 0.2;
   position: absolute;
   display: block;
+  animation: bubble 10s ease-in-out infinite;
 }
 
 .bubble1 {
@@ -252,6 +253,7 @@ main {
   height: 1rem;
   top: 15rem;
   right: 20rem;
+  animation-delay: 1s;
 }
 
 /* end section__1 */
@@ -297,7 +299,7 @@ main {
   line-height: 117.5%;
   font-family: IRANYekanBold;
   margin-bottom: 4rem;
-  margin-top: 12rem;
+  margin-top: 4rem;
 }
 .section__2__form {
   display: flex;
@@ -371,7 +373,7 @@ main {
   text-align: right;
   font-size: 2.25rem;
   margin: 4rem;
-  padding-bottom: 12rem;
+  padding-bottom: 4rem;
   white-space: nowrap;
 }
 
@@ -396,6 +398,7 @@ input[type="number"] {
   filter: blur(8.5px);
   top: 8rem;
   right: 10rem;
+  animation-delay: 2s;
 }
 .bubble3 {
   width: 2.625rem;
@@ -406,6 +409,7 @@ input[type="number"] {
   background: #eb5757;
   top: 30rem;
   right: 8rem;
+  animation-delay: 3s;
 }
 .bubble4 {
   width: 1.8125rem;
@@ -416,6 +420,7 @@ input[type="number"] {
   background: #e0e0e0;
   top: 12rem;
   left: 10rem;
+  animation-delay: 4s;
 }
 
 .section__1 .gift1 {
@@ -538,6 +543,30 @@ footer {
   100% {
     filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
     transform: translatey(0px);
+  }
+}
+
+@-webkit-keyframes bubble {
+  0% {
+    transform: scale(1) translatey(0px);
+  }
+  50% {
+    transform: scale(1.2) translatey(-40px);
+  }
+  100% {
+    transform: scale(1) translatey(0px);
+  }
+}
+
+@keyframes bubble {
+  0% {
+    transform: scale(1) translatey(0px);
+  }
+  50% {
+    transform: scale(1.2) translatey(-40px);
+  }
+  100% {
+    transform: scale(1) translatey(0px);
   }
 }
 

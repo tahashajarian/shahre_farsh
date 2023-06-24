@@ -1,32 +1,74 @@
-function secondsToDhm(seconds) {
-  seconds = Number(seconds);
-  const day = Math.floor(seconds / (3600 * 24));
-  const hour = Math.floor((seconds % (3600 * 24)) / 3600);
-  const minute = Math.floor((seconds % 3600) / 60);
-  return { day, hour, minute };
+function secondsToDhms(timeleft) {
+  timeleft = Number(timeleft);
+  const day = Math.floor(timeleft / (3600 * 24));
+  const hour = Math.floor((timeleft % (3600 * 24)) / 3600);
+  const minute = Math.floor((timeleft % 3600) / 60);
+  const seconds = Math.floor(timeleft % 60);
+  return { day, hour, minute, seconds };
 }
 
 function convertToNumberIcon(number) {
   if (number < 10) {
-    return `<span class="number number0"></span><span class="number number${number}"></span>`;
+    return `<span class="flipAnimate number number0"></span><span class="flipAnimate number number${number}"></span>`;
   } else {
-    return `<span class="number number${Math.floor(
+    return `<span class="flipAnimate number number${Math.floor(
       number / 10
-    )}"></span><span class="number number${Math.floor(number % 10)}"></span>`;
+    )}"></span><span class="flipAnimate number number${Math.floor(
+      number % 10
+    )}"></span>`;
   }
 }
 
-const timeLeft = 1342514; // seconds
-const counterDiv = document.querySelector("#counter");
-const { day, hour, minute } = secondsToDhm(timeLeft);
-console.log({ day, hour, minute });
+const assignClass = (firstElement, secondElement, number) => {
+  firstElement.classList.remove("flipAnimate");
+  secondElement.classList.remove("flipAnimate");
 
-const result = `<span class="days">${convertToNumberIcon(
-  day
-)}</span><span class="hours">${convertToNumberIcon(
-  hour
-)}</span><span class="number colon"></span><span class="minutes">${convertToNumberIcon(minute)}</span>`;
+  const firstNumber = Math.floor(number / 10);
+  const secondNumber = Math.floor(number % 10);
 
-console.log(result);
+  const firstElementInnerText = firstElement.innerText;
+  const secondElementInnerText = secondElement.innerText;
 
-counterDiv.innerHTML = result;
+  const firstElementClassAfter = `number number${firstNumber}`;
+  const secondElementClassAfter = `number number${secondNumber}`;
+
+  if (firstElementClassAfter.includes(firstElementInnerText)) {
+    firstElement.className = firstElementClassAfter;
+  } else {
+    firstElement.className = firstElementClassAfter + " flipAnimate";
+  }
+
+  if (secondElementClassAfter.includes(secondElementInnerText)) {
+    secondElement.className = secondElementClassAfter;
+  } else {
+    secondElement.className = secondElementClassAfter + " flipAnimate";
+  }
+  firstElement.innerText = Math.floor(number / 10);
+  secondElement.innerText = Math.floor(number % 10);
+};
+
+let timeLeft = 1342514; // seconds
+const startCounter = () => {
+  const counterDiv = document.querySelector("#counter");
+  const dayFirst = document.querySelector("#dayFirst");
+  const daySecond = document.querySelector("#daySecond");
+  const hourFirst = document.querySelector("#hourFirst");
+  const hourSecond = document.querySelector("#hourSecond");
+  const minuteFirst = document.querySelector("#minuteFirst");
+  const minutSecond = document.querySelector("#minutSecond");
+  const secondFirst = document.querySelector("#secondFirst");
+  const secondSecond = document.querySelector("#secondSecond");
+  if (counterDiv) {
+    setInterval(() => {
+      const { day, hour, minute, seconds } = secondsToDhms(timeLeft);
+      assignClass(dayFirst, daySecond, day);
+      assignClass(hourFirst, hourSecond, hour);
+      assignClass(minuteFirst, minutSecond, minute);
+      assignClass(secondFirst, secondSecond, seconds);
+
+      timeLeft = timeLeft - 1;
+    }, 1000);
+  }
+};
+
+window.onload = startCounter();
