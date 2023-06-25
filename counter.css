@@ -498,7 +498,6 @@ main {
   font-size: 0;
 }
 
-
 .flipAnimate::before {
   /* content: "";
   height: 50%;
@@ -811,6 +810,10 @@ input[type="number"] {
   line-height: 117.5%;
   margin-right: auto;
   margin-left: 2rem;
+}
+
+.card button {
+  font-family: IRANYekanFN;
 }
 
 /* end section 2 */

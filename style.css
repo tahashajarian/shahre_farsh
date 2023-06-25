@@ -70,10 +70,7 @@ header {
   padding: 2.5rem;
   padding-top: 2rem;
   z-index: 10;
-  /* position: fixed;
   width: 100%;
-  left: 50%;
-  transform: translateX(-50%); */
 }
 
 .nav {
@@ -153,13 +150,16 @@ main {
   /* border: 1px solid; */
   min-height: 100vh;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .section__1 {
   /* border: 1px solid; */
   max-width: var(--xl);
-  margin: 0 auto;
-  padding-bottom: 20%;
+  margin: auto;
+  /* padding-bottom: 20%; */
   display: flex;
   align-items: center;
   justify-content: space-between;
